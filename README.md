@@ -13,7 +13,14 @@
 
 # ビルド手順
 
-- TODO
+- 多分こんな感じでいけるはず
+
+```
+rm -rf kaisetsu-procps-ng
+git clone https://github.com/nanaka-inside/kaisetsu-procps-ng.git
+cd kaisetsu-procps-ng
+PATH=${PATH}:/usr/local/texlive/2015/bin/x86_64-linux/ sh ./latex-build.sh
+```
 
 # その他
 
