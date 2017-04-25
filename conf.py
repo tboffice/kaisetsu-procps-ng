@@ -166,7 +166,7 @@ html_domain_indices = True
 #html_file_suffix = None
 
 # Output file base name for HTML help builder.
-htmlhelp_basename = 'Coreutils explained'
+htmlhelp_basename = 'explained procps-ngs'
 
 
 # -- Options for LaTeX output --------------------------------------------------
@@ -186,7 +186,7 @@ latex_elements = {
   #\\secdef\\@chapter\\@schapter}\n\
 #\\makeatother',
 'preamble': ur"""
-\AtBeginDvi{\special{papersize=182mm,233mm}}
+\AtBeginDvi{\special{papersize=182mm,257mm}}
 \fancypagestyle{normal}{
 \fancyhf{}
 \fancyhead[LE,RO]{\nouppercase{\rightmark}}

@@ -35,7 +35,7 @@ shared
    tmpfsによって使われているメモリ量 (カーネル 2.6.32上では　`/proc/meminfo`　の Shmem。0ならば有効になっていない)
 
 buffers
-   カーネルバッファによって使われているメモリ量 (`/proc/meminfo`の Buffers)
+   カーネルバッファによって使われているメモリ量 ( `/proc/meminfo` の Buffers)
 
 cache
    ページキャッシュとslabsによって使われているメモリ量 (`/proc/meminfo` のCached とSlab)
@@ -50,8 +50,8 @@ available
 オプション
 ~~~~~~~~~~
 
-まとめて解説します。 バイトで表示したい場合は、 `-b` または `--bytes` そのあとは `-k` `-m` `-g` `--tera`と続きます。
-`-h` または `--human` でひゅーまんりりーだぶるです。
+まとめて解説します。 バイトで表示したい場合は、 `-b` または `--bytes` そのあとは `-k` 、 `-m` 、 `-g` 、 `--tera` と続きます。
+ `-h` または `--human` でひゅーまんりりーだぶるです。
 
 -w, --wide
    ワイドモードです。あんまり効果ない
@@ -239,7 +239,12 @@ Report logged in users and what they are doing
 
 
 watch
-=========
+----------
 .. index:: watch
 
 Execute a program periodically, showing output fullscreen
+
+あとがき
+=========
+
+おつかれさまでした。プレビューでしたが楽しんでいただけましたでしょうか。多分表紙買いだったのでは？と疑っていますがまあなんとかなるでしょう（意味不明
