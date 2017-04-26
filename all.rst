@@ -419,84 +419,375 @@ psはいくつかのオプションの指定の方法があります。
 #. BSD方式。ダッシュ不要(例 ps aux)
 #. GNU long方式。ダッシュが二回(--)
 
-これらを混ぜて使うといかんです。ps auxをps -auxと書くと、 ps -a -u -x になって意味が違います。どちらかに統一しましょう。
+これらを混ぜて使ってはいけません。ps auxをps -auxと書くと、 ps -a -u -x になって意味が違います。どちらかに統一しましょう。 `ps` のマニュアルは量が多いので、コマンドの例を示して終わります。ではどうぞ。
 
+例
+~~~~
+
+- 標準のオプションを使ってシステムのすべてのプロセスを見るには
+
+.. code-block:: sh
+
+   ps -e
+   ps -ef
+   ps -eF
+   ps -ely
+
+- BSDのオプションを使ってシステムのすべてのプロセスを見るには
+
+.. code-block:: sh
+
+   ps ax
+   ps axu
+
+- プロセスツリーを表示
+
+.. code-block:: sh
+
+   ps -ejH
+   ps axjf
+
+- スレッドについての情報は
+
+.. code-block:: sh
+
+   ps -eLf
+   ps axms
+
+- 指定した形式でrootで動作しているすべてのプロセスを見るには
+
+.. code-block:: sh
+
+   ps -U root -u root u
+
+- syslogdのプロセスIDだけを表示
+
+.. code-block:: sh
+
+   ps -C syslogd -o pid=
+
+- 42のPIDだけを表示 [#yonjuuni]_
+
+.. code-block:: sh
+
+   ps -q 42 -o comm=
+
+.. [#yonjuuni] このマニュアルというかソフトウエア、42が好きみたいですねえ
 
 pwdx
 ----------
 .. index:: pwx
 
-Report current directory of a process
+- 特定のプロセスの今いるディレクトリを表示
+
+解説
+~~~~~~
+
+コマンドの書き方は下記です。
+
+::
+
+   pwdx [options] pid [...]
 
 
-skill
-----------
+例
+~~~~~~~~~~~
+
+なんですかこれは？と言われるので適当に打ってみましょう
+
+.. code-block:: sh
+
+   # pwdx 1 2 3
+   1: /
+   2: /
+   3: /
+
+pidに対するプロセスがいるディレクトリが分かります。 `-V` オプションはバージョン情報を表示します。おしまいです。
+
+
+skill, snice
+--------------
 .. index:: skill
-Obsolete version of pgrep/pkill
+
+- シグナルを送ったり、プロセスの状態を教えてくれます
+
+解説
+~~~~~~
+
+コマンドの書き方は下記です。
+
+::
+
+       skill [signal] [options] expression
+       snice [new priority] [options] expression
+
+これらのコマンドは古くて移植できない。 `killall` や `pkill` 、 `pgrep` を使ったほうが良い、ってマニュアルにかかれてます。
+
+`skill` はデフォルトで TERM を送ります。 `-l` や `-L` で有効なシグナルの一覧を表示します。 HUPとかINTとかKILLとかSTOPとか0を含みます。
+他の方法としては３種類定義されており、 `-9` `-SIGKILL` `-KILL` です。
+
+デフォルトの `snice` の優先度は +4です。優先度の範囲は +20(最も遅い) から -20 (最も早い) です。優先度を上げるときはroot的なユーザ権限が必要です。
+
+
+解説
+~~~~~~
+
+-f, --fast
+   ファストモードです。未実装。まじかよ。
+
+-i, --interactive
+   対話的に使えます。数字を打ち込んで優先度を変更できます
+
+-l, --list
+   すべてのシグナル名を表示します
+
+-L, --table
+   すべてのシグナル名を良い感じに表で表示します
+
+-n, --no-action
+   なにもしません。シュミレーションをするだけでシステムを変更しません。
+
+-v, --verbose
+   詳細になります。説明がなされます。なんのこっちゃ。
+
+-w, --warnings
+   警告が有効になります。未実装。なんでや！
+
+-h, --help
+    ヘルプを表示します
+
+-V, --version
+   バージョンを表示します
 
 
 slabtop
 ----------
 .. index:: slabtop
 
-Display kernel slab cache information in real time
+- リアルタイムでカーネルのslab cache情報を表示します
 
 
-snice
-----------
-.. index:: snice
+解説
+~~~~~~
 
-Renice a process
+コマンドの書き方は下記です。
+
+::
+
+   slabtop [options]
+
+オプション
+~~~~~~~~~~
+
+-d, --delay=N
+   リフレッシュ間隔を秒で設定します。デフォルトは３秒です。qでプログラムを終了します
+
+-s, --sort=S
+   Sで並べ替えます。一文字で指定します。デフォルトは o でオブジェクトの番号でソートします
+
+-o, --once
+   一度表示してプログラムを終了します
+
+-V, --version
+   バージョンを表示
+
+-h, --help
+   ヘルプを表示
+
+::
+
+   # slabtop -o
+    Active / Total Objects (% used)    : 127062 / 138452 (91.8%)
+    Active / Total Slabs (% used)      : 5830 / 5830 (100.0%)
+    Active / Total Caches (% used)     : 83 / 110 (75.5%)
+    Active / Total Size (% used)       : 34359.12K / 39188.70K (87.7%)
+    Minimum / Average / Maximum Object : 0.01K / 0.28K / 16.19K
+
+     OBJS ACTIVE  USE OBJ SIZE  SLABS OBJ/SLAB CACHE SIZE NAME
+    21483  17204   0%    0.19K   1023       21      4092K dentry
+    13416  13092   0%    0.58K   1032       13      8256K inode_cache
+    13356  13356 100%    0.11K    371       36      1484K sysfs_dir_cache
+    11904  11507   0%    0.06K    186       64       744K kmalloc-64
+     9352   8959   0%    0.57K    669       14      5352K radix_tree_node
+     9333   8744   0%    0.08K    183       51       732K selinux_inode_security
+     8385   8366   0%    0.10K    215       39       860K buffer_head
 
 
 sysctl
 ----------
 .. index:: sysctl
 
-Read or Write kernel parameters at run-time
+- 起動しているときにカーネルのパラメータを変更する
+
+解説
+~~~~~~
+
+コマンドの書き方は下記です。
+
+::
+
+   sysctl [options] [variable[=value]] [...]
+   sysctl -p [file or regexp] [...]
+
+Linux触っている人にはお馴染みのコマンドではないでしょうか。え？さわったことない？起動してるLinuxのカーネルのパラメータを変更できるコマンドです。何が嬉しいかって、port range広げるんですよ。当たり前田のクラッカー。分からないひとはぐぐってね。
+
+このコマンドのパラメータは、 `/proc/sys` のディレクトリ下に対して有効です。依存関係で Procfsが必要です。sysctlのデータを読んだり書き込みしたりできます。
+
+
+オプション
+~~~~~~~~~~~
+
+variable
+   キーの名前。例えば kernel.ostype。セパレータである / は . に置換されます
+
+variable=value
+   キーを設定します。-wパラメータをつけて、ダブルクオートでくくってね！shellがパースするからね！
+
+-n, --values
+   キー名を表示しません
+
+-e, --ignore
+   知らないキーがあってもエラーを出しません
+
+-N, --names
+   名前だけを表示します。シェルでプログラミングするとき便利でしょう
+
+-q, --quiet
+   値を表示しません
+
+-w, --write
+   sysctlの設定を変更するときに使うオプションです
+
+-p[FILE], --load[=FILE]
+   FILEが無いとき、設定されているファイルや `/etc/sysctl.conf` ファイルから設定をロードします。ファイル名は標準入力からデータを読み取ることを意味しています。
+   FILEは正規表現として与えられることができます。
+
+-a, --all
+   すべての設定を表示します。キーなんかいちいち覚えていないときに使います
+
+--deprecated
+   --allと一緒に使うことによって廃止される予定のあるパラメータも表示
+
+-b, --binary
+   改行しないで表示
+
+--system
+    下記のすべての設定をロードする
+    /run/sysctl.d/*.conf
+    /etc/sysctl.d/*.conf
+    /usr/local/lib/sysctl.d/*.conf
+    /usr/lib/sysctl.d/*.conf
+    /lib/sysctl.d/*.conf
+    /etc/sysctl.conf
+
+-r, --pattern pattern
+    パターンを指定して検索。拡張正規表現を使う
+
+エイリアスとして、 -A は -a 、-dは-h、-fは-p 、-Xは-a で、-x -o はBSDの互換性のために用意
+
+例
+~~~
+
+::
+
+   /sbin/sysctl -a
+   /sbin/sysctl -n kernel.hostname
+   /sbin/sysctl -w kernel.domainname="example.com"
+   /sbin/sysctl -p/etc/sysctl.conf
+   /sbin/sysctl -a --pattern 'net.ipv4.conf.(eth|wlan)0.arp'
+   /sbin/sysctl --system --pattern '^net.ipv6'
 
 
 tload
 ----------
 .. index:: tload
 
-Graphical representation of system load average
+- ロードアベレージをグラフィカルに表示
 
+実行すると、画面一面にロードアベレージのグラフが表示されます。静かなサーバは何も表示されないと思います。
 
 top
 ----------
 .. index:: top
-Dynamic real-time view of running processes
 
+- リアルタイムで動作しているプログラムを表示します
+
+みなさんお馴染み `top` コマンドです。奥が深いので詳細は割愛します。製本版にはきちんと説明を入れたい。manページだけで1500行くらいあって辛い。
 
 uptime
 ----------
 .. index:: uptime
 
- Display how long the system has been running
+- システムの起動時間を問い合わせます
 
+個人的には `w` でいいんじゃないかなーと思いつつオプションを解説します。
+
+-p
+   uptimeを短い形式で表示
+
+-h
+   ヘルプを表示
+
+-s
+   yyyy-mm-dd HH:MM:SS の形式でシステムが起動した時間を表示。だいたい `who -b` と同じ
+
+-V
+   バージョン情報
 
 vmstat
 ----------
+
 .. index:: vmstat
 
-Report virtual memory statistics
+- 仮想メモリの状況を知らせてくれる
+
+１秒ごとに３回まで表示するならこんな感じです。各単語の意味はおわかりですね。
+
+::
+
+  $ vmstat 1 3
+   procs -----------memory---------- ---swap-- -----io---- -system-- ------cpu-----
+   r  b   swpd   free   buff  cache   si   so    bi    bo   in   cs us sy id wa st
+   2  0      0  11328  20492 145324    0    0    99    10   68   61  0  0 100  0  0
+   0  0      0  11312  20492 145324    0    0     0     0   94  169  0  0 100  0  0
+   1  0      0  11312  20492 145324    0    0     0    12   87  164  0  0 100  0  0
 
 
 w
 ----------
 .. index:: w
 
-Report logged in users and what they are doing
+- 誰がログインしてて何をしているのか表示してくれる
+
+個人的に短くて好きなコマンドです。いつから誰がどこのサーバからログインしているかわかります。TTYが分かるので `write` コマンドでメッセージが飛ばせます。 -i というオプションでIPアドレスのまま表示してくれます。下記は本書のビルドサーバで試したもの。さくらのVPSからsshを繋いでいることがわかります。
+
+::
+
+   $ w
+   17:20:27 up 7 days,  1:16,  3 users,  load average: 0.00, 0.01, 0.05
+   USER     TTY      FROM             LOGIN@   IDLE   JCPU   PCPU WHAT
+   root     pts/0    ik1-302-11037.vs 19Apr17  5days  0.07s  0.07s -bash
+   root     pts/1    ik1-302-11037.vs 19Apr17 25:26m  0.12s  0.12s -bash
+   root     pts/2    ik1-302-11037.vs Tue15    3.00s  0.55s  0.54s -bash
 
 
 watch
 ----------
 .. index:: watch
 
-Execute a program periodically, showing output fullscreen
+- 定期的にプログラムを実行してフルスクリーンで表示してくれる
 
-あとがき
-=========
+時々書き換わってしまうファイルを定期的に見るときとかに使います。
 
-おつかれさまでした。プレビューでしたが楽しんでいただけましたでしょうか。多分表紙買いだったのでは？と疑っていますがまあなんとかなるでしょう（意味不明
+.. code-block:: sh
+
+   $ watch -d -n 1 /tmp/tmpfile
+
+とすると /tmp/tmpfile を１秒ごとに監視して、変化があったところを白抜きで表示してくれます。fileじゃなくてもコマンドの結果にも有効なので `watch -d -n 1 date` とかするとよいでしょう。
+マニュアルの実行例に下記のような記述があり楽しい。
+
+::
+
+  管理者による最新のカーネルのインストール状況を監視する:
+  watch uname -r
+  (ただの冗談です)
