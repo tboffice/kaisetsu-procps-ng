@@ -388,7 +388,7 @@ pmap
    失敗
 
 42
-   探したすべてのプロセスが見つからなかった。詳しくは42でググる
+   探したすべてのプロセスが見つからなかった。42の意味はググれば出てくる
 
 
 ps
@@ -497,7 +497,7 @@ pwdx
 
 .. code-block:: sh
 
-   # pwdx 1 2 3
+   $ sudo pwdx 1 2 3
    1: /
    2: /
    3: /
@@ -673,6 +673,9 @@ variable=value
 
 --system
     下記のすべての設定をロードする
+
+::
+
     /run/sysctl.d/*.conf
     /etc/sysctl.d/*.conf
     /usr/local/lib/sysctl.d/*.conf
@@ -781,9 +784,15 @@ watch
 
 .. code-block:: sh
 
-   $ watch -d -n 1 /tmp/tmpfile
+   $ watch -d -n 1 cat /tmp/tmpfile
 
-とすると /tmp/tmpfile を１秒ごとに監視して、変化があったところを白抜きで表示してくれます。fileじゃなくてもコマンドの結果にも有効なので `watch -d -n 1 date` とかするとよいでしょう。
+とすると /tmp/tmpfile を１秒ごとに監視して、変化があったところを白抜きで表示してくれます。fileじゃなくてもコマンドの結果にも有効なので
+
+.. code-block:: sh
+
+   $ watch -d -n 1 date
+
+とかするとよいでしょう。
 マニュアルの実行例に下記のような記述があり楽しい。
 
 ::

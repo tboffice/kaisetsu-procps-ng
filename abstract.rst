@@ -59,16 +59,14 @@ Digital OceanのOSで調べたところ下記のようになりました。一�
    Debian 8.7 jessie     libprocps3 3.3.9
    ====================  ==================
 
-.. table:: Truth table for "not"
-   :widths: auto
 
-   =====  =====
-     A    not A
-   =====  =====
-   False  True
-   True   False
-   =====  =====
+:Authors:
+    Tony J. (Tibs) Ibbs,
+    David Goodger
+    (and sundry other good-natured folks)
 
+:Version: 1.0 of 2001/08/08
+:Dedication: To my father.
 
 対象読者
 --------
