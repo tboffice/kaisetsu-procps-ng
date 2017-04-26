@@ -60,13 +60,11 @@ Digital OceanのOSで調べたところ下記のようになりました。一�
    ====================  ==================
 
 
-:Authors:
-    Tony J. (Tibs) Ibbs,
-    David Goodger
-    (and sundry other good-natured folks)
-
-:Version: 1.0 of 2001/08/08
-:Dedication: To my father.
+:CentOS  7.3.1611:　procps-ng-3.3.10
+:CentOS  6.9:           procps-3.2.8
+:Fedora 25:             procps-ng-3.3.10
+:Ubuntu 16.04.2:        libprocps4 3.3.10
+:Debian 8.7 jessie:     libprocps3 3.3.9
 
 対象読者
 --------
