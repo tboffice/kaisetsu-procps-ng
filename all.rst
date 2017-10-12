@@ -1594,7 +1594,7 @@ watch
 ========
 
 あとがき
-~~~~~~~~
+---------
 ここまで読んでいただきありがとうございました。拙書「解説Coreutils」と同じノリで今回の解説Procps-ng、いかがだったでしょうか。Coreutilsよりもコマンド数が少ないので、薄い本に仕上がりました。topコマンド書くの疲れた・・・ってのが、おおざっぱな印象です。
 間違いを発見したり、もっと内容を良くできると思った方、筆者 [#hissha]_ または https://github.com/nanaka-inside/kaisetsu-procps-ng までPRをいただけると頂けると大変ありがたいです。第2版が出るその日までさようなら。なんでこんなにあっさりしたあとがきなのかって？それはまだ本文が書き上がってないからだよ！
 
@@ -1602,7 +1602,7 @@ watch
 
 
 参考文献
-~~~~~~~~~
+--------
 - 「procps-ng / procps · GitLab」,<https://gitlab.com/procps-ng/procps>
 - 「英語学習・TOEIC対策・英辞郎 on the WEB | アルク」,<http://www.alc.co.jp/>
 - 「参考文献の書き方」,<http://web.ydu.edu.tw/~uchiyama/ron/ron_04.html#web_a>

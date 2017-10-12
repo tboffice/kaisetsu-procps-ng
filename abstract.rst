@@ -1,8 +1,3 @@
-.. raw:: latex
-
-   \begin{abstract} \newpage
-   \hbox{}\newpage
-
 はじめに
 ========
 
