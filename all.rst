@@ -20,25 +20,25 @@ free
    free [options]
 
 `free` コマンドはシステム上のスワップメモリと物理的に使われている/使われていないメモリの量を表示します。カーネルに使われているバッファとキャッシュも表示します。
-この情報は `/proc/meminfo` から作られます。表示されるものは
+この情報は /proc/meminfo から作られます。表示されるものは
 
 total
-   すべてのメモリ量 (`/proc/meminfo` の MemTotal とSwapTotal です)
+   すべてのメモリ量 (/proc/meminfo の MemTotal とSwapTotal です)
 
 used
    使われているメモリ量 (total - free - buffers - cacheから計算される)
 
 free
-   使われていないメモリ量 (`/proc/meminfo` の MemFree SwapFree です)
+   使われていないメモリ量 (/proc/meminfo の MemFree SwapFree です)
 
 shared
-   tmpfsによって使われているメモリ量 (カーネル 2.6.32上では　`/proc/meminfo`　の Shmem。0ならば有効になっていない)
+   tmpfsによって使われているメモリ量 (カーネル 2.6.32上では　/proc/meminfo　の Shmem。0ならば有効になっていない)
 
 buffers
-   カーネルバッファによって使われているメモリ量 ( `/proc/meminfo` の Buffers)
+   カーネルバッファによって使われているメモリ量 ( /proc/meminfo の Buffers)
 
 cache
-   ページキャッシュとslabsによって使われているメモリ量 (`/proc/meminfo` のCached とSlab)
+   ページキャッシュとslabsによって使われているメモリ量 (/proc/meminfo のCached とSlab)
 
 buff/cache
    buffersとcacheの合計
@@ -88,7 +88,7 @@ available
    Mem:            488         331           6          28         150
    Swap:             0           0           0
 
-参考に、 `/proc/meminfo` の中身です。
+参考に、 /proc/meminfo の中身です。
 
 .. code-block:: sh
 
@@ -543,10 +543,10 @@ skill, snice
        skill [signal] [options] expression
        snice [new priority] [options] expression
 
-これらのコマンドは古くて移植できない。 `killall` や `pkill` 、 `pgrep` を使ったほうが良い、ってマニュアルにかかれてます。
+これらのコマンドは古くて移植できない。 `killall` や `pkill` , `pgrep` を使ったほうが良い、ってマニュアルにかかれてます。
 
-`skill` はデフォルトで TERM を送ります。 `-l` や `-L` で有効なシグナルの一覧を表示します。 HUPとかINTとかKILLとかSTOPとか0を含みます。
-他の方法としては３種類定義されており、 `-9` `-SIGKILL` `-KILL` です。
+`skill` はデフォルトで TERM を送ります。 -l や -L で有効なシグナルの一覧を表示します。 HUPとかINTとかKILLとかSTOPとか0を含みます。
+他の方法としては３種類定義されており、 -9, -SIGKILL, -KILL です。
 
 デフォルトの `snice` の優先度は +4です。優先度の範囲は +20(最も遅い) から -20 (最も早い) です。優先度を上げる(マイナス値を設定する)ときはroot的なユーザ権限が必要です。
 
@@ -877,7 +877,7 @@ CPUのところは、最後に画面が更新されてからの間隔に基づ�
               a    b     c    d
    %Cpu(s):  75.0/25.0  100[ ...
 
-説明のため、a,b,c,dという記号を付けました。a は us + ni を足したパーセンテージ。bは sy のパーセンテージ。cは合計。dはグラフです。us ってなんだよ、って感じですが、procpsのときはこんな感じで表示されることを思い出しましょう。知らなくても知っていたことにしましょう。
+説明のため、a,b,c,dという記号を付けました。a は us + ni を足したパーセンテージ。bは sy のパーセンテージ。cは合計。dはグラフです。us とか ni ってなんだよ、って感じですが、procpsのときはこんな感じで表示されることを思い出しましょう。知らなくても知っていたことにしましょう。
 
 ::
 
@@ -984,7 +984,7 @@ C
    スクロールの座標を表示。打ってみれば分かる
 
 c
-   コマンドラインを表示するか、プログラム名を表示するか切り替える。具体的には `/usr/lib/systemd/systemd --switched-root --system --deserialize 21` が `systemd`になる
+   コマンドラインを表示するか、プログラム名を表示するか切り替える。具体的には `/usr/lib/systemd/systemd --switched-root --system --deserialize 21` が `systemd` になる
 
 d
    画面の更新間隔を更新する時間を指定。デフォルトは3秒。sでも可能
