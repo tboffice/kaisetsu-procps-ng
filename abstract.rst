@@ -1,6 +1,7 @@
 .. raw:: latex
 
    \hbox{}\newpage
+   \hbox{}\newpage
 
 はじめに
 ========
