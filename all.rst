@@ -311,8 +311,9 @@ netscape プロセスの優先度を変更します
 
 .. raw:: latex
 
-   \clearpagepmap
+    \clearpage
 
+pmap
 ----------
 .. index:: pmap
 
@@ -403,7 +404,7 @@ netscape プロセスの優先度を変更します
 
 .. raw:: latex
 
-    \clearpageps
+    \clearpage
 
 ----------
 .. index:: ps
