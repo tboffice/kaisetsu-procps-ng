@@ -184,6 +184,9 @@ kill -l 11
 kill 123 543 2341 3453
    デフォルトシグナルである SIGTERM を指定されているプロセスIDに送る
 
+.. raw:: latex
+
+    \clearpage
 
 pgrep, pkill
 -------------
@@ -306,7 +309,10 @@ netscape プロセスの優先度を変更します
 -h, --help
    ヘルプを表示
 
-pmap
+.. raw:: latex
+
+   \clearpagepmap
+
 ----------
 .. index:: pmap
 
@@ -395,7 +401,10 @@ pmap
    探したすべてのプロセスが見つからなかった。42の意味はググれば出てくる
 
 
-ps
+.. raw:: latex
+
+    \clearpageps
+
 ----------
 .. index:: ps
 
@@ -478,6 +487,10 @@ psはいくつかのオプションの指定の方法があります。
 
 .. [#yonjuuni] このマニュアルというかソフトウエア、42が好きみたいですねえ
 
+.. raw:: latex
+
+    \clearpage
+
 pwdx
 ----------
 .. index:: pwx
@@ -508,6 +521,9 @@ pwdx
 
 あのプロセスってどこのディレクトリで起動しているんだろう？というのが分かります。唯一のオプション `-V` はバージョン情報を表示します。おしまいです。
 
+.. raw:: latex
+
+    \clearpage
 
 skill, snice
 --------------
@@ -563,6 +579,9 @@ skill, snice
 -V, --version
    バージョンを表示します
 
+.. raw:: latex
+
+    \clearpage
 
 slabtop
 ----------
@@ -618,6 +637,9 @@ slabtop は、リアルタイムで詳細なカーネルのslab cache 情報を�
      9333   8744   0%    0.08K    183       51       732K selinux_inode_security
      8385   8366   0%    0.10K    215       39       860K buffer_head
 
+.. raw:: latex
+
+    \clearpage
 
 sysctl
 ----------
@@ -698,6 +720,9 @@ variable=value
    /sbin/sysctl -a --pattern 'net.ipv4.conf.(eth|wlan)0.arp'
    /sbin/sysctl --system --pattern '^net.ipv6'
 
+.. raw:: latex
+
+    \clearpage
 
 tload
 ----------
@@ -732,6 +757,9 @@ tload
 
 /proc/loadavg にロードアベレージの情報がある。ただし初見殺し。
 
+.. raw:: latex
+
+    \clearpage
 top
 ----------
 .. index:: top
@@ -1075,6 +1103,10 @@ topを起動して、必要ならcを押してそのあとVを押します。右
    :alt: 最終的な画面
    :scale: 80%
 
+.. raw:: latex
+
+    \clearpage
+
 uptime
 ----------
 .. index:: uptime
@@ -1102,6 +1134,10 @@ uptime
 
 -V, --version
   バージョン情報
+
+.. raw:: latex
+
+    \clearpage
 
 vmstat
 ----------
@@ -1374,6 +1410,10 @@ vmstatに関連するコマンドは、free, iostat [#sysstet]_ , mpstat [#sysst
 
 ..  [#sysstet] sysstatパッケージに含まれています。http://sebastien.godard.pagesperso-orange.fr/
 
+.. raw:: latex
+
+    \clearpage
+
 w
 ----------
 .. index:: w
@@ -1430,6 +1470,9 @@ PROCPS_FROMLEN
 
    PROCPS_FROMLEN=40 w -f
 
+.. raw:: latex
+
+    \clearpage
 
 watch
 ----------
