@@ -136,6 +136,11 @@ available
    DirectMap1G:           0 kB
 
 
+.. raw:: latex
+
+    \clearpage
+
+
 kill
 ----------
 .. index:: kill
@@ -937,7 +942,7 @@ C
    スクロールの座標を表示。打ってみれば分かる
 
 c
-   コマンドラインを表示するか、プログラム名を表示するか切り替える。具体的には `/usr/lib/systemd/systemd --switched-root --system --deserialize 21`が `systemd`になる
+   コマンドラインを表示するか、プログラム名を表示するか切り替える。具体的には `/usr/lib/systemd/systemd --switched-root --system --deserialize 21` が `systemd`になる
 
 d
    画面の更新間隔を更新する時間を指定。デフォルトは3秒。sでも可能。
@@ -1236,9 +1241,9 @@ count アップデートの回数。delayがあってcountがない場合は無�
 ::
 
     [root@procps-ng-build ~]# vmstat -t
-    procs -----------memory---------- ---swap-- -----io---- -system-- ------cpu----- -----timestamp-----
-     r  b   swpd   free   buff  cache   si   so    bi    bo   in   cs us sy id wa st                 UTC
-     2  0      0  76608 120464 482176    0    0     1     4   27   55  0  0 100  0  0 2017-10-12 06:54:36
+    procs -----------memory---------- ------cpu----- -----timestamp-----
+     r  b   swpd   free   buff  cache   sy id wa st          UTC
+     2  0      0  76608 120464 482176 0  0 100  0  0 2017-10-12 06:54:36
 
 
 -w, --wide
@@ -1253,66 +1258,95 @@ VM MODEのためのフィールドの説明
 Procs
 ^^^^^^
 
-r  起動中(runnable)のプロセス数(起動時間における起動・待機)
-b  割り込み不可のスリープのプロセスの数(The number of processes in uninterruptible sleep)
+r
+  起動中(runnable)のプロセス数(起動時間における起動・待機)
+b
+  割り込み不可のスリープのプロセスの数(The number of processes in uninterruptible sleep)
 
 Memory
 ^^^^^^^
 
-swpd  バーチャルメモリがつかている量
-free  アイドルメモリの量
-buff  バッファとして使っているメモリの量
-cache  キャッシュとして使っているメモリの量
-inact  インアクティブメモリの量(-aオプション)
-active  アクティブメモリの量(-aオプション)
+swpd
+  バーチャルメモリがつかている量
+free
+  アイドルメモリの量
+buff
+  バッファとして使っているメモリの量
+cache
+  キャッシュとして使っているメモリの量
+inact
+  インアクティブメモリの量(-aオプション)
+active
+  アクティブメモリの量(-aオプション)
 
 Swap
 ^^^^^^
-si  ディスクからのスワップインするメモリ量(毎秒)
-so  ディスクにスワップするメモリ量(毎秒)
+si
+  ディスクからのスワップインするメモリ量(毎秒)
+so
+  ディスクにスワップするメモリ量(毎秒)
 
 IO
 ^^^^
-bi  あるブロックデバイスから受け取るBlocks(毎秒)
-bo  あるブロックデバイスに送るBlocks(毎秒)
+bi
+  あるブロックデバイスから受け取るBlocks(毎秒)
+bo
+  あるブロックデバイスに送るBlocks(毎秒)
 
 System
 ^^^^^^^
-in  クロックを含めた毎秒の割り込み数
-cs  毎秒のコンテキストスイッチ数
+in
+  クロックを含めた毎秒の割り込み数
+cs
+  毎秒のコンテキストスイッチ数
 
 CPU
 ^^^^^
 
 下記は、合計CPU時間のパーセンテージである
 
-us  カーネルじゃないコードの実行に費やした時間(user time。nice timeも含む)
-sy  カールコードの実行に費やした時間(system time)
-id  idle時間。カーネル2.5.41以前はIO-wait timeも含めていた
-wa  IOにかかった時間。カーネル2.5.41以前はidle時間も含めていた
-st  バーチャルマシーンに奪われた時間。カーネル2.6.11以前は不明(unknown)
+us
+  カーネルじゃないコードの実行に費やした時間(user time。nice timeも含む)
+sy
+  カールコードの実行に費やした時間(system time)
+id
+  idle時間。カーネル2.5.41以前はIO-wait timeも含めていた
+wa
+  IOにかかった時間。カーネル2.5.41以前はidle時間も含めていた
+st
+  バーチャルマシーンに奪われた時間。カーネル2.6.11以前は不明(unknown)
 
 DISK MODEのためのフィールドの説明
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Reads:
 
-total  完全に成功した読み込み(reads)の合計
-merged  読み込みを集めた(ひとつのI/Oの結果)
-sectors  成功したセクタの読み込み
-ms  読み取りに費やしたミリセカンド
+total
+  完全に成功した読み込み(reads)の合計
+merged
+  読み込みを集めた(ひとつのI/Oの結果)
+sectors
+  成功したセクタの読み込み
+ms
+  読み取りに費やしたミリセカンド
 
 Writes:
 
-total  完全に成功した書き込み(writes)の合計
-merged  書き込みをを集めた(ひとつのI/Oの結果)
-sectors  成功したセクタの書き込み
-ms  書き込みに費やしたミリセカンド
+total
+  完全に成功した書き込み(writes)の合計
+merged
+  書き込みをを集めた(ひとつのI/Oの結果)
+sectors
+  成功したセクタの書き込み
+ms
+  書き込みに費やしたミリセカンド
 
 IO:
 
-cur  I/Oの進捗
-s  I/Oに費やした時間
+cur
+  I/Oの進捗
+s
+  I/Oに費やした時間
 
 ディスクパーティションモードのためのフィールドの説明
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
