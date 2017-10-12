@@ -186,7 +186,7 @@ latex_elements = {
   #\\secdef\\@chapter\\@schapter}\n\
 #\\makeatother',
 'preamble': ur"""
-\AtBeginDvi{\special{papersize=182mm,257mm}}
+\AtBeginDvi{\special{papersize=182mm,233mm}}
 \fancypagestyle{normal}{
 \fancyhf{}
 \fancyhead[LE,RO]{\nouppercase{\rightmark}}
