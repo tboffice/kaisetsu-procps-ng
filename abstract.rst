@@ -160,7 +160,3 @@ zipでくれ：
 
 メーリングリストは：
   http://www.freelists.org/archive/procps/
-
-.. raw:: latex
-
-   \end{abstract}
