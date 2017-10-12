@@ -406,6 +406,7 @@ pmap
 
     \clearpage
 
+ps
 ----------
 .. index:: ps
 
@@ -1102,7 +1103,7 @@ topを起動して、必要ならcを押してそのあとVを押します。右
 
 .. figure:: ./top2.eps
    :alt: 最終的な画面
-   :scale: 80%
+   :scale: 100%
 
 .. raw:: latex
 
@@ -1388,18 +1389,27 @@ s
 ディスクパーティションモードのためのフィールドの説明
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-reads  このパーティションについて読まれた総数
-read sectors  パーティションにために読まれたセクタの量
-writes  このパーティションについて書かれた総量
-requested writes  パーティションのために作られた書き込み要求の総数
+reads
+  このパーティションについて読まれた総数
+read sectors
+  パーティションにために読まれたセクタの量
+writes
+  このパーティションについて書かれた総量
+requested writes
+  パーティションのために作られた書き込み要求の総数
 
 SLAB MODEのためのフィールドの説明
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-cache  キャッシュ名
-num  現在のアクティブオブジェクトの数
-total  有効なオブジェクトの数
-size  それぞれのオブジェクトのサイズ
-pages  少なくとも一つのアクティブオブジェクトのページ数
+cache
+  キャッシュ名
+num
+  現在のアクティブオブジェクトの数
+total
+  有効なオブジェクトの数
+size
+  それぞれのオブジェクトのサイズ
+pages
+  少なくとも一つのアクティブオブジェクトのページ数
 
 その他
 ~~~~~~~
@@ -1570,3 +1580,10 @@ watch
 間違いを発見したり、もっと内容を良くできると思った方、筆者 [#hissha]_ または https://github.com/nanaka-inside/kaisetsu-procps-ng までPRをいただけると頂けると大変ありがたいです。第2版が出るその日までさようなら。なんでこんなにあっさりしたあとがきなのかって？それはまだ本文が書き上がってないからだよ！
 
 .. [#hissha] twitter: @tboffice
+
+
+参考文献
+~~~~~~~~~
+「procps-ng / procps · GitLab」,<https://gitlab.com/procps-ng/procps>
+「英語学習・TOEIC対策・英辞郎 on the WEB | アルク」,<http://www.alc.co.jp/>
+「参考文献の書き方」,<http://web.ydu.edu.tw/~uchiyama/ron/ron_04.html#web_a>
