@@ -1,19 +1,14 @@
-# あーあ見つけてしまいましたね
+# 解説Procps-ng
 
-# お友達にも内緒だよ
+このリポジトリは同人サークル[第7開発セクション](https://sites.google.com/site/dai7sec/ "第7開発セクション")が[技術書典3](https://techbookfest.org/event/tbf03) (2017/10/22)で発行した同人誌「解説Procps-ng」の原稿です。
 
-2017年4月くらいに出す同人誌の原稿を収めたリポジトリです。
-リリース出すまでは、このリポジトリは見なかったことにしてね！
-リリースは[@tboffice](https://twitter.com/tboffice)のアカウントで出します。4月の終わりくらいになると思います。
+[Procps-ng](https://gitlab.com/procps-ng/procps "procps")のマニュアルを筆者([@tboffice](https://twitter.com/tboffice))がひと通り読んで、便利そうなところや注意点などをまとめました。
 
-# 解説procps-ng
-
-- TODO
-- 画像を張る
 
 # ビルド手順
 
-- 多分こんな感じでいけるはず
+- 自力で本文のPDFを作るときはこんな感じでできるはず
+- sphinxとdvipdfmxが入った環境が必要です。あと日本語フォントの雑に設定しておくといいかも
 
 ```
 rm -rf kaisetsu-procps-ng
